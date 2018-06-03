@@ -22,9 +22,9 @@ GameObject:
   - component: {fileID: 212850656141895054}
   - component: {fileID: 50116019695404002}
   - component: {fileID: 61611718328019682}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FloatFloor_0 (2)
-  m_TagString: Untagged
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -38,9 +38,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4314784445162690}
   - component: {fileID: 114283270876645566}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FloatingFloor
-  m_TagString: Untagged
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -56,9 +56,9 @@ GameObject:
   - component: {fileID: 212530812585095402}
   - component: {fileID: 61536005429309452}
   - component: {fileID: 50948048271829038}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FloatFloor_0 (1)
-  m_TagString: Untagged
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -74,9 +74,9 @@ GameObject:
   - component: {fileID: 212017085319609442}
   - component: {fileID: 50147908945789690}
   - component: {fileID: 61051056198402778}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FloatFloor_0
-  m_TagString: Untagged
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
