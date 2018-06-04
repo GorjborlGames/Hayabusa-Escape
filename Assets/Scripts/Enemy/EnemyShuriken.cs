@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour {
+public class EnemyShuriken : MonoBehaviour {
 
     private Transform PlayerTransform;
     private Animator EnemyAnimator;
-    public GameObject SwordSlash;
+    public GameObject Shuriken;
     float Distance;
     private bool StartAttackAnimation;
     float AttackTimer = 0;
@@ -28,7 +28,7 @@ public class Enemy : MonoBehaviour {
 
         EnemyAnimator.SetBool("PlayerNear", StartAttackAnimation);
 
-        InstantiateSwordSlash(NearPlayer());
+        InstantiateShurikenAttack(NearPlayer());
 
         
     }
@@ -40,7 +40,7 @@ public class Enemy : MonoBehaviour {
 
     public bool NearPlayer()
     {
-        if (Distance <= 3f)
+        if (Distance <= 7f)
         {
             
             return true;
@@ -51,13 +51,13 @@ public class Enemy : MonoBehaviour {
         }
     }
 
-    void InstantiateSwordSlash(bool IsPlayerNear)
+    void InstantiateShurikenAttack(bool IsPlayerNear)
     {        
             AttackTimer -= Time.deltaTime;
             if (AttackTimer <= 0 && IsPlayerNear)
             {
                 Vector3 AttackPosition = transform.position + new Vector3(-1f, 0, 0);
-                GameObject SwordAttackInstantiate = Instantiate(SwordSlash, AttackPosition, Quaternion.identity);
+                GameObject ShurikenAttackInstantiate = Instantiate(Shuriken, AttackPosition, Quaternion.identity);
                 StartAttackAnimation = true;
                 AttackTimer = 1f;
             } else
@@ -74,6 +74,8 @@ public class Enemy : MonoBehaviour {
             Instantiate(Resources.Load("Explosion"), transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
+
+
 
         if(collision.gameObject.tag == "PlayerSlash")
         {

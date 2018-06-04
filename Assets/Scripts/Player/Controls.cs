@@ -27,10 +27,12 @@ public class Controls : MonoBehaviour {
     public Image HeartEmpty1;
     public Image HeartEmpty2;
     public Image HeartEmpty3;
-    private int PlayerLives;
+    public int PlayerLives;
     public Transform CameraPosition;
     Vector3 RespawnPosition;
-    private bool Respawning;
+    public bool Respawning;
+    public bool DoubleJump;
+    
 
 
     
@@ -74,7 +76,8 @@ public class Controls : MonoBehaviour {
         RespawnPosition = new Vector3(CameraPosition.position.x - 4.35f, CameraPosition.position.y - 3.195001f, 0);
 
         PlayerFall();
-        
+
+        RespawnPlayer(Respawning);
     }
 
     void HandleMovement(float horizontal)
@@ -117,6 +120,7 @@ public class Controls : MonoBehaviour {
             IsGrounded = true;
             IsJumping = false;
             Respawning = true;
+            DoubleJump = false;
         }
 
 
@@ -125,9 +129,21 @@ public class Controls : MonoBehaviour {
             PlayerLives--;
             UpdateLivesUI();
         }
+
+        if (collision.gameObject.tag == "EnemyShuriken")
+        {
+            PlayerLives--;
+            UpdateLivesUI();
+        }
+
+        if (collision.gameObject.tag == "Enemy")
+        {
+            PlayerLives--;
+            UpdateLivesUI();
+        }
     }
 
-    void UpdateLivesUI()
+    public void UpdateLivesUI()
     {
         if(PlayerLives == 3)
         {
@@ -177,23 +193,34 @@ public class Controls : MonoBehaviour {
             PlayerLives--;
             UpdateLivesUI();
             Respawning = true;
-
         }
+        else
+        {
+            Respawning = false;
+        }        
     }
 
-    void RespawnPlayer( bool Respawning )
+    void RespawnPlayer( bool MustRespawn )
     {
-        gameObject.transform.position = RespawnPosition;
+        if ( MustRespawn )
+        {
+            //gameObject.transform.position = RespawnPosition;    
+            Time.timeScale = 0;
+            gameObject.transform.position = new Vector3(transform.position.x, 2, 0);
+            Time.timeScale = 1;
+        }
+        
 
     }
 
     public void Jumping()
     {
-        if (IsGrounded)
+        if (IsGrounded || !DoubleJump )
         {
             PlayerBody.velocity = new Vector2(0, JumpSpeed);
             IsJumping = true;
             IsGrounded = false;
+            DoubleJump = true;
         }
         
     }

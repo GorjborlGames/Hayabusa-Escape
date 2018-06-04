@@ -10,6 +10,7 @@ TagManager:
   - EnemySlash
   - Enemy
   - Explosion
+  - EnemyShuriken
   layers:
   - Default
   - TransparentFX

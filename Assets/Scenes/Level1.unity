@@ -977,7 +977,10 @@ MonoBehaviour:
   HeartEmpty1: {fileID: 669516928}
   HeartEmpty2: {fileID: 1774591048}
   HeartEmpty3: {fileID: 812352583}
+  PlayerLives: 0
   CameraPosition: {fileID: 519420032}
+  Respawning: 0
+  DoubleJump: 0
 --- !u!212 &839874557
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1642,9 +1645,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Floor:
   - {fileID: 1836231937175940, guid: d0882524e8176704c9f9b0624ec0048f, type: 2}
-  - {fileID: 1337993137550358, guid: 74a30945e58b3184dbcff21df10d8bd7, type: 2}
   - {fileID: 1511415434081560, guid: 3f92e481bdee1c74d870b686aac62287, type: 2}
+  - {fileID: 1337993137550358, guid: 74a30945e58b3184dbcff21df10d8bd7, type: 2}
   - {fileID: 1115883245025618, guid: 1da8d346648083c4a9ba67be7ffa1295, type: 2}
+  - {fileID: 1909204159348504, guid: 36accd322104a644783e16de2b884db0, type: 2}
+  - {fileID: 1693347277395642, guid: 762b8a654ed47764eb3e385f61690d42, type: 2}
   - {fileID: 1116356442431878, guid: 8f746a3bac40505489a29916caafa399, type: 2}
   GenerationPoint: {fileID: 1055572367}
   DistanceBetweenFloor: 10

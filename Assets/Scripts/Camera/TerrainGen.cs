@@ -23,9 +23,9 @@ public class TerrainGen : MonoBehaviour {
 
         
 
-        if (transform.position.x < GenerationPoint.position.x && !TerrainLoop)
+        if (transform.position.x < GenerationPoint.position.x && !TerrainLoop && !FindObjectOfType<Controls>().Respawning)
         {
-            FloorSelector = Random.Range(0, 4);
+            FloorSelector = Random.Range(0, 6);
             if(FloorSelector != 3)
             {
                 transform.position = new Vector3(transform.position.x + FloorWidth + DistanceBetweenFloor, transform.position.y, 0);
@@ -42,11 +42,12 @@ public class TerrainGen : MonoBehaviour {
             
         }
 
+
         if (transform.position.x < GenerationPoint.position.x && TerrainLoop)
         {
             
             transform.position = new Vector3(transform.position.x + FloorWidth + 4, transform.position.y, 0);
-            GameObject CurrentFloor = Instantiate(Floor[4], transform.position, transform.rotation);
+            GameObject CurrentFloor = Instantiate(Floor[6], transform.position, transform.rotation);
 
 
         }
